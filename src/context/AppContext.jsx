@@ -3,6 +3,7 @@ import { doctors } from "../../public/assets";
 export const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
+    
   const store = {
     doctors,
   };
