@@ -6,7 +6,7 @@ const MyAppointments = () => {
   return (
     <div>
       <p className="pb-3 mt-12 font-medium text-zinc-700 border-b">
-        My appointments
+        My Appointments
       </p>
       <div>
         {doctors.slice(0, 3).map((doctor, index) => {
