@@ -20,8 +20,6 @@ const Appointment = () => {
   };
 
   const getAvailableSlots = async () => {
-    setDoctorSlots([]);
-
     let today = new Date();
 
     for (let i = 0; i < 7; i++) {
@@ -68,11 +66,7 @@ const Appointment = () => {
 
   useEffect(() => {
     getAvailableSlots();
-  }, [doctorInfo]);
-
-  useEffect(() => {
-    // console.log(doctorSlots);
-  }, [doctorSlots]);
+  }, []);
 
   return (
     doctorInfo && (
