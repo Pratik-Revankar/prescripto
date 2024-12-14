@@ -20,6 +20,7 @@ const Appointment = () => {
   };
 
   const getAvailableSlots = async () => {
+    setDoctorSlots([]);
     let today = new Date();
 
     for (let i = 0; i < 7; i++) {
@@ -116,18 +117,24 @@ const Appointment = () => {
             {doctorSlots.length > 0 &&
               doctorSlots.map((slot, index) => {
                 return (
-                  <div
-                    key={index}
-                    onClick={() => setSlotIndex(index)}
-                    className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${
-                      slotIndex === index
-                        ? "bg-primary text-white"
-                        : "border border-gray-200"
-                    }`}
-                  >
-                    <p>{slot[0] && daysOfWeek[slot[0].dateTime.getDay()]}</p>
-                    <p>{slot[0] && slot[0].dateTime.getDate()}</p>
-                  </div>
+                  <>
+                    {!!slot.length && (
+                      <div
+                        key={index}
+                        onClick={() => setSlotIndex(index)}
+                        className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${
+                          slotIndex === index
+                            ? "bg-primary text-white"
+                            : "border border-gray-200"
+                        }`}
+                      >
+                        <p>
+                          {slot[0] && daysOfWeek[slot[0].dateTime.getDay()]}
+                        </p>
+                        <p>{slot[0] && slot[0].dateTime.getDate()}</p>
+                      </div>
+                    )}
+                  </>
                 );
               })}
           </div>
